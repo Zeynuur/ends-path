@@ -2,8 +2,9 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -38,6 +39,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Behind
+    uniqueID: 2471836819
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Door
+    uniqueID: 794031805
+    locked: 0
+  m_RenderingLayers:
+  - Default
