@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Room : MonoBehaviour
@@ -19,11 +21,6 @@ public class Room : MonoBehaviour
         RoomController.instance.RegisterRoom(this);
     }
 
-    void Update()
-    {
-        
-    }
-
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -33,5 +30,13 @@ public class Room : MonoBehaviour
     public Vector3 GetRoomCentre()
     {
         return new Vector3(X * Width, Y * Height);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Player")
+        {
+            RoomController.instance.OnPlayerEnterRoom(this);
+        }
     }
 }
