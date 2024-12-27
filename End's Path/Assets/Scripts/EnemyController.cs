@@ -5,6 +5,7 @@ using UnityEngine;
 
 public enum EnemyState
 {
+    Idle,
     Wander,
     Follow,
     Die,
@@ -21,7 +22,7 @@ public class EnemyController : MonoBehaviour
 {
 
     GameObject player;
-    public EnemyState currentState = EnemyState.Wander;
+    public EnemyState currentState = EnemyState.Idle;
     public EnemyType enemyType;
 
 
@@ -31,12 +32,14 @@ public class EnemyController : MonoBehaviour
     public float bulletSpeed;
     public float coolDown;
 
+
     private bool chooseDirection = false;
     private bool dead = false;
     private bool coolDownAttack = false;
+    public bool notInRoom = false;
+
 
     private Vector3 randomDirection;
-
     public GameObject bulletPrefab; 
 
 
@@ -49,6 +52,9 @@ public class EnemyController : MonoBehaviour
     {
         switch(currentState)
         {
+            // case(EnemyState.Idle):
+            //     Idle();
+            //     break;
             case(EnemyState.Wander):
                 Wander();
                 break;
@@ -63,20 +69,26 @@ public class EnemyController : MonoBehaviour
                 break;
         }
 
-        if (IsPlayerInRange(range)&& currentState != EnemyState.Die)
-        {
-            currentState = EnemyState.Follow;
-        }
-        else if (!IsPlayerInRange(range) && currentState != EnemyState.Die)
-        {
-            currentState = EnemyState.Wander;
-        }
+        if(!notInRoom)
+        { 
+            if (IsPlayerInRange(range)&& currentState != EnemyState.Die)
+            {
+                currentState = EnemyState.Follow;
+            }
+            else if (!IsPlayerInRange(range) && currentState != EnemyState.Die)
+            {
+                currentState = EnemyState.Wander;
+            }
 
-        if(Vector3.Distance(transform.position, player.transform.position) <= attackRange)
-        {
-            currentState = EnemyState.Attack;
+            if(Vector3.Distance(transform.position, player.transform.position) <= attackRange)
+            {
+                currentState = EnemyState.Attack;
+            }
         }
-
+        else
+        {
+            currentState = EnemyState.Idle;
+        }
     }
 
     private bool IsPlayerInRange(float range)
@@ -93,7 +105,7 @@ public class EnemyController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, nextRotation, Random.Range(0.5f, 2.5f));
         chooseDirection = false;
     }
-
+    
     void Wander()
     {
         if (!chooseDirection)

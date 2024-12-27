@@ -14,7 +14,7 @@ public class ObjectRoomSpawner : MonoBehaviour
 
     void Start()
     {
-        grid = GetComponentInChildren<GridController>();
+        //grid = GetComponentInChildren<GridController>();
 
     }
 

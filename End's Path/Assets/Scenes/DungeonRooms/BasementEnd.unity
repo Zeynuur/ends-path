@@ -285,10 +285,10 @@ MonoBehaviour:
   Height: 9
   X: 0
   Y: 0
-  leftDoor: {fileID: 0}
-  rightDoor: {fileID: 0}
-  topDoor: {fileID: 0}
-  bottomDoor: {fileID: 0}
+  leftDoor: {fileID: 922883442}
+  rightDoor: {fileID: 194474507}
+  topDoor: {fileID: 1791266510}
+  bottomDoor: {fileID: 1677312182}
   doors: []
 --- !u!4 &367788571
 Transform:

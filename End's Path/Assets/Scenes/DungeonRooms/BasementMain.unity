@@ -456,13 +456,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca793703811fe1458b564b37f081eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 3
+  currentState: 4
   enemyType: 1
   range: 10
   speed: 1
   attackRange: 5
   bulletSpeed: 5
   coolDown: 2
+  notInRoom: 0
   bulletPrefab: {fileID: 2170929459753786348, guid: e95124185bdb2204fa125183f3713a00, type: 3}
 --- !u!212 &305223823
 SpriteRenderer:
