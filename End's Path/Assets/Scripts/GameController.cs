@@ -65,12 +65,12 @@ public class GameController : MonoBehaviour
         moveSpeed += speed;
     }
 
-        public static void FireRateChange(float rate)
+    public static void FireRateChange(float rate)
     {
         fireRate -= rate;
     }
 
-        public static void BulletSizeChange(float size)
+    public static void BulletSizeChange(float size)
     {
         bulletSize += size;
     }
